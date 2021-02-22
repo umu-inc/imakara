@@ -1,0 +1,39 @@
+    <h1>
+        <%if @wont != nil%>
+            <%if @wont.wont === 1%>
+            パパ活
+            <%elsif @wont.wont === 2%>
+            パーティー
+            <%elsif @wont.wont === 3%>
+            ギャラのみ
+            <%elsif @wont.wont === 4%>
+            友活    
+            <%end%>
+        <%end%>
+    </h1>
+    <%= @wont_today.find_each do |post|%>
+        <% if post.user.profile.blank?%>
+            <p>
+                <%if post.user.id === current_user.id%>
+                    <%= link_to "あなた" , new_profile_path%>　
+                <%else%>
+                    名無し
+                <%end%>
+                <%=post.post%>
+            </p>
+        <%else %>
+            <p>
+            <% if user_signed_in? %>
+                <% if post.user.id === current_user.id %>
+                    <%= link_to post.user.profile.name , profiles_path%>
+                    <%=post.post%>
+                    <%= link_to "編集", edit_post_path(post.id)%>
+                    <%= link_to "削除", post_path(post.id), method: :delete%>
+                <%else%>
+                    <%= link_to post.user.profile.name , profile_path(post.user.id)%>
+                    <%=post.post%>
+                <%end%>
+            <%end%>
+            </p>
+        <%end %>
+    <%end%>

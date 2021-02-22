@@ -1,0 +1,19 @@
+<h1>マイページ</h1>
+<div>
+    <%= link_to "プロフィール編集", new_profile_path%>
+    <% if @profile.blank? %>
+        <p>ユーザ名</p>
+    <%else %>
+        <p><%=@profile.name%></p>
+    <%end %>
+        <% if !@posts.blank? %>
+        <%= @posts.find_each do |post|%>
+            <p>
+                <%=post.post%>
+                <%= link_to post.wont ,post_path(post.id)%>
+                <%= link_to "編集", edit_post_path(post.id)%>
+                <%= link_to "削除", post_path(post.id), method: :delete%>
+            </p>
+        <%end%>
+    <%end %>
+</div>
