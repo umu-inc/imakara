@@ -1,5 +1,7 @@
-<h1><%= @profile.name %>のページ</h1>
-<p><%= @profile.name %></p>
-<%= @posts.find_each do |post|%>
-    <p><%=post.post%></p>
-<%end%>
+<div class="main">
+    <h1><%= @profile.name %>のページ</h1>
+    <p><%= @profile.name %></p>
+    <%= @posts.find_each do |post|%>
+        <p><%=post.post%></p>
+    <%end%>
+</div>

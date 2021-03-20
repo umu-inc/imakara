@@ -1,4 +1,4 @@
-<div>
+<div class="main">
 <% if user_signed_in? %>
     <%= @posts.find_each do |post|%>
         <% if post.user.profile.blank?%>

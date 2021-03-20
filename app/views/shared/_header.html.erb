@@ -1,8 +1,8 @@
-<div>
+<div class="header">
     <h1>
         <a href="/">ロゴ</a>
     </h1>
-    <div class="pc-nav">
+    <div class="nav">
         <ul>
             <% if user_signed_in? %>
                 <%if current_user.posts.find_by("created_at >= ?", Date.today) == nil%>

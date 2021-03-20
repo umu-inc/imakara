@@ -1,11 +1,9 @@
-<div>
-<%=  form_with model: @post, local: true do |f|  %>
-  <p><%= f.label :post %></p>
-  <p><%= f.text_area :post %></p>
-  <p><%= f.label :wont %></p>
-  <p><%= f.select :wont, {'パパ活': 1,'パーティー': 2,'ギャラのみ': 3,'友活': 4}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></p>
-  <p><input type="checkbox">参加する</input>
-  <input type="checkbox">主催する</input></p>
-  <p><%= f.submit %></p>
-<% end %>
+<div class="main">
+  <%=  form_with model: @post, local: true do |f|  %>
+    <p><%= f.label :post %></p>
+    <p><%= f.text_area :post %></p>
+    <p><%= f.label :wont %></p>
+    <p><%= f.select :wont, {'和食': 1,'イタリアン': 2,'焼肉': 3,'居酒屋': 4}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></p>
+    <p><%= f.submit %></p>
+  <% end %>
 </div>
